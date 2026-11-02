@@ -91,7 +91,7 @@ def main() -> None:
         per_device_eval_batch_size=64,
         learning_rate=5e-5,
         weight_decay=0.01,
-        warmup_ratio=0.1,
+        warmup_steps=30,
         save_strategy="no",
         logging_steps=50,
         report_to="none",
