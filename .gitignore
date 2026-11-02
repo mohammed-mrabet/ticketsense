@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+# Les modèles et la base sont régénérés par : python -m ticketsense.train / database
+models/*.joblib
+models/transformer_*/
+data/tickets.db

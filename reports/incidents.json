@@ -1,0 +1,66 @@
+[
+  {
+    "date": "2026-05-12",
+    "cluster": 23,
+    "tickets": 42,
+    "usual_daily_volume": 1.0,
+    "main_category": "Réseau",
+    "keywords": [
+      "travaille",
+      "connecter travaille",
+      "vpn refuse",
+      "refuse connecter",
+      "vpn",
+      "connecter"
+    ],
+    "example": "Bonjour le support, Le vpn refuse de se connecter quand je travaille depuis chez moi. J'ai déjà redémarré le poste. C'est urgent, j'ai une réunion client dans u"
+  },
+  {
+    "date": "2026-07-07",
+    "cluster": 7,
+    "tickets": 38,
+    "usual_daily_volume": 2.0,
+    "main_category": "Messagerie",
+    "keywords": [
+      "synchronisation",
+      "cours",
+      "outlook reste",
+      "reste bloque",
+      "bloque synchronisation",
+      "synchronisation cours"
+    ],
+    "example": "Bonjour Outlook reste bloque sur « synchronisation en cours ». Je vous joins une capture d'ecran. Merci de regarder des que possible."
+  },
+  {
+    "date": "2026-09-15",
+    "cluster": 21,
+    "tickets": 32,
+    "usual_daily_volume": 2.0,
+    "main_category": "Impression",
+    "keywords": [
+      "imprimante",
+      "ligne",
+      "hors",
+      "hors ligne",
+      "indiquee",
+      "indiquee hors"
+    ],
+    "example": "salut, l'imprimante du 3e etage est indiquee hors ligne. au passage, merci de creer un compte pour un nouvel arrivant lundi dans l'equipe rh. le probleme a comm"
+  },
+  {
+    "date": "2026-10-20",
+    "cluster": 15,
+    "tickets": 35,
+    "usual_daily_volume": 1.0,
+    "main_category": "Accès & comptes",
+    "keywords": [
+      "authentification",
+      "code double",
+      "authentification telephone",
+      "telephone",
+      "double",
+      "double authentification"
+    ],
+    "example": "je ne reçois plus le code de double authentification sur mon téléphone"
+  }
+]

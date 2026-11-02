@@ -1,0 +1,127 @@
+{
+  "version": "1.0.0",
+  "trained_at": "2026-11-02T17:56:57",
+  "dataset_size": 4000,
+  "category": {
+    "train_size": 3200,
+    "test_size": 800,
+    "baseline_most_frequent": {
+      "accuracy": 0.2137,
+      "precision_macro": 0.0356,
+      "recall_macro": 0.1667,
+      "f1_macro": 0.0587
+    },
+    "tfidf_logreg": {
+      "accuracy": 0.915,
+      "precision_macro": 0.9141,
+      "recall_macro": 0.9106,
+      "f1_macro": 0.9123
+    },
+    "per_class": {
+      "Accès & comptes": {
+        "precision": 0.9024390243902439,
+        "recall": 0.9135802469135802,
+        "f1-score": 0.9079754601226994,
+        "support": 162.0
+      },
+      "Impression": {
+        "precision": 0.9047619047619048,
+        "recall": 0.8735632183908046,
+        "f1-score": 0.8888888888888888,
+        "support": 87.0
+      },
+      "Logiciel": {
+        "precision": 0.9421965317919075,
+        "recall": 0.9532163742690059,
+        "f1-score": 0.9476744186046512,
+        "support": 171.0
+      },
+      "Matériel": {
+        "precision": 0.9272727272727272,
+        "recall": 0.9107142857142857,
+        "f1-score": 0.918918918918919,
+        "support": 112.0
+      },
+      "Messagerie": {
+        "precision": 0.9090909090909091,
+        "recall": 0.9016393442622951,
+        "f1-score": 0.9053497942386831,
+        "support": 122.0
+      },
+      "Réseau": {
+        "precision": 0.8986486486486487,
+        "recall": 0.910958904109589,
+        "f1-score": 0.9047619047619048,
+        "support": 146.0
+      },
+      "accuracy": 0.915,
+      "macro avg": {
+        "precision": 0.9140682909927236,
+        "recall": 0.9106120622765933,
+        "f1-score": 0.9122615642559578,
+        "support": 800.0
+      },
+      "weighted avg": {
+        "precision": 0.9149891920853256,
+        "recall": 0.915,
+        "f1-score": 0.9149306442073529,
+        "support": 800.0
+      }
+    }
+  },
+  "priority": {
+    "train_size": 3200,
+    "test_size": 800,
+    "baseline_most_frequent": {
+      "accuracy": 0.385,
+      "precision_macro": 0.0963,
+      "recall_macro": 0.25,
+      "f1_macro": 0.139
+    },
+    "tfidf_logreg": {
+      "accuracy": 0.7312,
+      "precision_macro": 0.7004,
+      "recall_macro": 0.7246,
+      "f1_macro": 0.7093
+    },
+    "per_class": {
+      "Basse": {
+        "precision": 0.729064039408867,
+        "recall": 0.7668393782383419,
+        "f1-score": 0.7474747474747475,
+        "support": 193.0
+      },
+      "Moyenne": {
+        "precision": 0.8020833333333334,
+        "recall": 0.75,
+        "f1-score": 0.7751677852348994,
+        "support": 308.0
+      },
+      "Haute": {
+        "precision": 0.7376237623762376,
+        "recall": 0.6866359447004609,
+        "f1-score": 0.711217183770883,
+        "support": 217.0
+      },
+      "Critique": {
+        "precision": 0.5327102803738317,
+        "recall": 0.6951219512195121,
+        "f1-score": 0.6031746031746031,
+        "support": 82.0
+      },
+      "accuracy": 0.73125,
+      "macro avg": {
+        "precision": 0.7003703538730675,
+        "recall": 0.7246493185395788,
+        "f1-score": 0.7092585799137833,
+        "support": 800.0
+      },
+      "weighted avg": {
+        "precision": 0.7393720321235946,
+        "recall": 0.73125,
+        "f1-score": 0.733510938066968,
+        "support": 800.0
+      }
+    }
+  }
+}
