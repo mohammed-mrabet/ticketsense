@@ -1,0 +1,14 @@
+{
+  "model": "distilbert-base-multilingual-cased",
+  "target": "category",
+  "epochs": 3,
+  "test_size": 800,
+  "hardware": "Google Colab, GPU T4",
+  "train_runtime_seconds": 62.09,
+  "scores": {
+    "accuracy": 0.9387,
+    "precision_macro": 0.939,
+    "recall_macro": 0.9343,
+    "f1_macro": 0.9365
+  }
+}

@@ -24,11 +24,12 @@ Dans un service support, chaque ticket doit être lu, classé puis attribué à 
 | Catégorie | **TF-IDF + régression logistique** | **0,915** | 0,914 | 0,911 | **0,912** |
 | Priorité | Référence : classe majoritaire | 0,385 | 0,096 | 0,250 | 0,139 |
 | Priorité | **TF-IDF + régression logistique** | **0,731** | 0,700 | 0,725 | **0,709** |
-| Catégorie | DistilBERT multilingue (fine-tuning) | *à compléter après exécution du script sur GPU* | | | |
+| Catégorie | **DistilBERT multilingue (fine-tuning, 3 époques)** | **0,939** | 0,939 | 0,934 | **0,937** |
 
 **Lecture des résultats**
 - La **catégorie** est bien reconnue (F1 = 0,91). Les erreurs restantes viennent surtout des tickets qui évoquent deux sujets et des ~5 % d'étiquettes volontairement erronées du jeu de données : le plafond atteignable est donc autour de 0,95.
 - La **priorité** est plus difficile (F1 = 0,71) : dans un tiers des tickets, l'utilisateur n'exprime aucune urgence. C'est réaliste. En production, la priorité proposée servirait de suggestion, pas de décision automatique.
+- **DistilBERT** gagne **2,4 points de F1** sur la catégorie (0,937 contre 0,912) et se rapproche du plafond d'environ 0,95. En contrepartie, il demande un GPU (62 s d'entraînement sur un T4 de Google Colab, contre quelques secondes sur CPU pour TF-IDF) et une inférence plus lourde. Pour un helpdesk, TF-IDF reste un très bon choix par défaut ; DistilBERT se justifie si chaque point de précision compte.
 - Le **F1 macro** est la métrique principale : il donne le même poids à chaque classe, y compris les moins fréquentes (Impression, Critique).
 
 <img src="reports/confusion_category.png" width="48%"> <img src="reports/confusion_priority.png" width="48%">
@@ -63,7 +64,7 @@ Le pipeline accepte n'importe quel CSV avec les colonnes `subject`, `body`, `cat
 `TF-IDF` sur les **mots** (1-2 grammes) **et les caractères** (3-5 grammes, robustes aux fautes de frappe) → **régression logistique** avec pondération des classes. Le modèle est simple, rapide (entraînement en quelques secondes sur CPU) et interprétable. Il est comparé à une référence naïve (prédire toujours la classe la plus fréquente) pour montrer ce qu'il apporte réellement.
 
 ### 3. Modèle Transformer
-[`scripts/train_transformer.py`](scripts/train_transformer.py) fine-tune **DistilBERT multilingue** sur **exactement le même découpage** entraînement/test, pour une comparaison équitable. Il demande un GPU : exécution prévue sur Google Colab (voir plus bas).
+[`scripts/train_transformer.py`](scripts/train_transformer.py) fine-tune **DistilBERT multilingue** sur **exactement le même découpage** entraînement/test, pour une comparaison équitable. Entraîné sur Google Colab (GPU T4) : F1 macro de **0,937** sur la catégorie (résultats dans `reports/transformer_category.json`).
 
 ### 4. Détection des incidents
 TF-IDF → réduction **SVD** (100 dimensions) → **K-Means** (30 groupes). Un incident est signalé quand un groupe reçoit en une journée au moins 15 tickets et 3 fois plus que son 90ᵉ centile journalier habituel. Le seuil sur le centile évite les fausses alertes des lundis chargés.
@@ -172,7 +173,8 @@ ticketsense/
 ## 🗺️ Pistes d'amélioration
 
 - Tester le modèle sur un jeu de tickets réels anonymisés
-- Ajouter les résultats DistilBERT / CamemBERT et comparer le temps d'inférence
+- Comparer avec CamemBERT et mesurer le temps d'inférence de chaque modèle
+- Fine-tuner DistilBERT aussi sur la priorité
 - Apprentissage continu à partir des corrections faites par les techniciens
 - Routage automatique vers l'équipe concernée (intégration GLPI ou Jira Service Management)
 
